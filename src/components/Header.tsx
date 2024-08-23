@@ -2,9 +2,7 @@ import Image from "next/image";
 
 import { Typography } from "./shadcn/Typography";
 
-import { BellOutlineIcon } from "./icons/BellOutlineIcon";
 import { SearchIcon } from "./icons/SearchIcon";
-// import { BellSolidIcon } from "./icons/BellSolidIcon";
 
 import CherryTubeIimage from "@images/logo.png";
 
@@ -34,16 +32,7 @@ export function Header() {
         </button>
       </form>
 
-      <div className="flex gap-x-7 items-center">
-        {/* <button className="relative">
-          <span className="absolute w-2 h-2 bg-red-500 rounded-full" />
-          <BellSolidIcon className="w-5 h-5 fill-neutral-50" />
-        </button> */}
-
-        <button className="relative">
-          <span className="absolute w-2 h-2 bg-red-500 rounded-full" />
-          <BellOutlineIcon className="w-5 h-5 fill-neutral-50" />
-        </button>
+      <div>
         <div className="relative w-10 h-10">
           <Image
             src="/images/users/profiles/user1.png"

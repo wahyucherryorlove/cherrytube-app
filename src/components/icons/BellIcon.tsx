@@ -1,8 +1,6 @@
 import type { ComponentPropsWithRef } from "react";
 
-export function BellSolidIcon({
-  className = "",
-}: ComponentPropsWithRef<"svg">) {
+export function BellIcon({ className = "" }: ComponentPropsWithRef<"svg">) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

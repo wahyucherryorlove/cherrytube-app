@@ -4,6 +4,7 @@ import type { NextPage } from "next";
 import type { ReactElement, ReactNode } from "react";
 
 import { Header } from "@components/Header";
+import { Sidebar } from "@components/Sidebar";
 
 import { karla, nunito } from "@utils/fonts";
 
@@ -21,6 +22,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     ((page: ReactElement) => (
       <>
         <Header />
+        <Sidebar />
         <main className={`${karla.variable} ${nunito.variable} mt-20`}>
           {page}
         </main>
