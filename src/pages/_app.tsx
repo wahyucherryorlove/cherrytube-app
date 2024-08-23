@@ -23,7 +23,9 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
       <>
         <Header />
         <Sidebar />
-        <main className={`${karla.variable} ${nunito.variable} mt-20`}>
+        <main
+          className={`${karla.variable} ${nunito.variable} mt-16 ml-[260px]`}
+        >
           {page}
         </main>
       </>

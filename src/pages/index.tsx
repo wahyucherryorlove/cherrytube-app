@@ -8,7 +8,7 @@ export default function Home() {
         <title>KingTube</title>
       </Head>
 
-      <section className="mt-5"></section>
+      <section>Testing</section>
     </>
   );
 }
