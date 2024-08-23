@@ -5,6 +5,7 @@ import type { ReactElement, ReactNode } from "react";
 
 import { Header } from "@components/Header";
 import { Sidebar } from "@components/Sidebar";
+import { ThemeProvider } from "@components/shadcn/ThemeProvinder";
 
 import { karla, nunito } from "@utils/fonts";
 
@@ -20,7 +21,12 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout =
     Component.getLayout ??
     ((page: ReactElement) => (
-      <>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
         <Header />
         <Sidebar />
         <main
@@ -28,7 +34,7 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         >
           {page}
         </main>
-      </>
+      </ThemeProvider>
     ));
 
   return getLayout(<Component {...pageProps} />);
