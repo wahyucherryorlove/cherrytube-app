@@ -3,6 +3,8 @@ import type { AppProps } from "next/app";
 import type { NextPage } from "next";
 import type { ReactElement, ReactNode } from "react";
 
+import { Header } from "@components/Header";
+
 import { karla, nunito } from "@utils/fonts";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -18,7 +20,10 @@ export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
     Component.getLayout ??
     ((page: ReactElement) => (
       <>
-        <main className={`${karla.variable} ${nunito.variable}`}>{page}</main>
+        <Header />
+        <main className={`${karla.variable} ${nunito.variable} mt-20`}>
+          {page}
+        </main>
       </>
     ));
 
