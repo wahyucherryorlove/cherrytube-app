@@ -11,13 +11,30 @@ import { Typography } from "@components/shadcn/Typography";
 
 import { PlayIcon } from "@components/icons/PlayIcon";
 
-export function CardVideo() {
+interface CardVideoProps {
+  id: number;
+  titleMusic: string;
+  musicImages: string;
+  nameUser: string;
+  profileUser: string;
+}
+
+export function CardVideo({
+  id = 0,
+  titleMusic = "",
+  musicImages = "",
+  nameUser = "",
+  profileUser = "",
+}: CardVideoProps) {
   return (
-    <Card className="p-0 rounded-md border-hidden desktop:w-[396px]">
+    <Card
+      className="p-0 rounded-md border-hidden w-[396px] desktop:w-full"
+      key={id}
+    >
       <CardHeader className="p-0">
         <Link href="" className="relative w-full h-52 group">
           <Image
-            src="/images/users/westlife/lagu1.jpg"
+            src={`/images/users/music/${musicImages}`}
             alt="Westlife"
             className="object-cover rounded-md"
             fill
@@ -33,22 +50,24 @@ export function CardVideo() {
       </CardHeader>
 
       <CardContent className="px-0 pt-4 flex items-start gap-x-4">
-        <Link href="" className="relative w-10 h-10">
+        <Link href="" className="relative w-10 h-10 pr-10">
           <Image
-            src="/images/users/profiles/user1.png"
-            alt="Westlife"
+            src={`/images/users/profiles/${profileUser}`}
+            alt={`${nameUser}`}
             className="object-cover rounded-full"
             fill
           />
         </Link>
         <div>
           <CardDescription className="text-lg">
-            Soledad - Westlife (Lyrics video dan terjemahan)
+            {titleMusic.length < 60
+              ? titleMusic
+              : titleMusic.substring(0, 65) + "..."}
           </CardDescription>
 
           <div className="flex gap-x-2 items-center mt-1">
-            <Link href="" className="text-neutral-400 text-sm">
-              Westlife
+            <Link href="" className="text-neutral-400 text-sm capitalize">
+              {nameUser}
             </Link>
             <span className="block w-1 h-1 mt-1.5 rounded-full bg-neutral-500" />
             <Typography variant="b4" className="text-neutral-400">

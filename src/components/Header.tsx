@@ -8,7 +8,7 @@ import CherryTubeIimage from "@images/logo.png";
 
 export function Header() {
   return (
-    <header className="bg-neutral-50 dark:bg-[#131212] h-16 flex items-center justify-between px-6 fixed w-full top-0 border-b border-neutral-200 dark:border-[#373A40]">
+    <header className="bg-neutral-50 dark:bg-[#131212] h-16 flex items-center justify-between px-6 fixed w-full top-0 border-b border-neutral-200 dark:border-[#373A40] z-50">
       <div className="flex items-center gap-x-1">
         <Image
           src={CherryTubeIimage}
@@ -39,7 +39,7 @@ export function Header() {
       <div>
         <div className="relative w-10 h-10">
           <Image
-            src="/images/users/profiles/user1.png"
+            src="/images/users/profiles/westlife.png"
             alt="Wahyudi Umar"
             className="object-cover rounded-full"
             fill
