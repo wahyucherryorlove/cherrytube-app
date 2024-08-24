@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 
 import { CardVideo } from "@components/beranda/CardVideo";
@@ -8,6 +8,7 @@ import { users } from "@data/users";
 
 export default function Home() {
   const [shuffledMusic, setShuffledMusic] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
 
   function shuffleArray<T>(array: T[]): T[] {
     for (let i = array.length - 1; i > 0; i--) {
@@ -18,7 +19,12 @@ export default function Home() {
   }
 
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 3000);
+
     setShuffledMusic(shuffleArray([...music]));
+    setLoading(false);
   }, []);
 
   return (
@@ -41,6 +47,7 @@ export default function Home() {
                 nameUser={user.nameUser}
                 profileUser={user.photoProfile}
                 urlMusic={musics.link}
+                loading={loading}
               />
             ))
         )}
