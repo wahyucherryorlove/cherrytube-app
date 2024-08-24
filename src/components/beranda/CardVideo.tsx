@@ -17,6 +17,7 @@ interface CardVideoProps {
   musicImages: string;
   nameUser: string;
   profileUser: string;
+  urlMusic: string;
 }
 
 export function CardVideo({
@@ -25,6 +26,7 @@ export function CardVideo({
   musicImages = "",
   nameUser = "",
   profileUser = "",
+  urlMusic = "",
 }: CardVideoProps) {
   return (
     <Card
@@ -32,7 +34,7 @@ export function CardVideo({
       key={id}
     >
       <CardHeader className="p-0">
-        <Link href="" className="relative w-full h-52 group">
+        <Link href={`${urlMusic}`} className="relative w-full h-52 group">
           <Image
             src={`/images/users/music/${musicImages}`}
             alt="Westlife"
