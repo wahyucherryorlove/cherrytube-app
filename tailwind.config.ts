@@ -14,6 +14,10 @@ const config: Config = {
     },
 
     extend: {
+      fontFamily: {
+        karla: ["var(--font-karla)", "sans-serif"],
+        nunito: ["var(--font-nunito)", "sans-serif"],
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -31,5 +35,5 @@ const config: Config = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
+} satisfies Config;
 export default config;

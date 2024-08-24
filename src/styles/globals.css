@@ -5,3 +5,11 @@
 body {
   @apply dark:bg-[#171717];
 }
+
+@layer base {
+  [data-theme="dark"] {
+    --tw-bg-opacity: 1;
+    background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
+    color: rgba(255, 255, 255, var(--tw-text-opacity));
+  }
+}
