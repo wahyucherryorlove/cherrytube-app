@@ -1,15 +1,28 @@
+import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 
+import { Button } from "./shadcn/Button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@components/shadcn/DropdownMenu";
 import { Typography } from "./shadcn/Typography";
 
+import { MoonIcon } from "./icons/MoonIcon";
 import { SearchIcon } from "./icons/SearchIcon";
+import { SunIcon } from "./icons/SunIcon";
 
 import CherryTubeIimage from "@images/logo.png";
 
 export function Header() {
+  const { setTheme } = useTheme();
+
   return (
     <header className="bg-neutral-50 dark:bg-[#131212] h-16 flex items-center justify-between px-6 fixed w-full top-0 border-b border-neutral-200 dark:border-[#373A40] z-50">
-      <div className="flex items-center gap-x-1">
+      <Link href="#" className="flex items-center gap-x-1">
         <Image
           src={CherryTubeIimage}
           alt="Cherry Tube"
@@ -23,7 +36,7 @@ export function Header() {
         >
           KingTube
         </Typography>
-      </div>
+      </Link>
 
       <form className="flex w-1/3 relative">
         <input
@@ -36,7 +49,43 @@ export function Header() {
         </button>
       </form>
 
-      <div>
+      <div className="flex gap-x-2 items-center">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button
+              variant="outline"
+              className="outline-none shadow-none focus-visible:ring-0 rounded-full border-none"
+            >
+              <SunIcon className="h-5 w-5 block dark:hidden fill-neutral-950" />
+              <MoonIcon className="h-5 w-5 hidden dark:block dark:fill-neutral-50" />
+              <span className="sr-only">Toggle theme</span>
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent
+            align="end"
+            className="bg-neutral-200 border-neutral-600 dark:bg-neutral-950 dark:border-[#373A40]"
+          >
+            <DropdownMenuItem
+              className="cursor-pointer"
+              onClick={() => setTheme("light")}
+            >
+              Light
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="cursor-pointer"
+              onClick={() => setTheme("dark")}
+            >
+              Dark
+            </DropdownMenuItem>
+            <DropdownMenuItem
+              className="cursor-pointer"
+              onClick={() => setTheme("system")}
+            >
+              System
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
         <div className="relative w-10 h-10">
           <Image
             src="/images/users/profiles/westlife.png"
