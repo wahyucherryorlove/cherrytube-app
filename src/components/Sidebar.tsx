@@ -11,7 +11,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="fixed top-16 bg-neutral-50 dark:bg-[#131212] h-full w-[260px] border-r border-neutral-200 dark:border-[#373A40] px-4 pt-7">
+    <aside className="fixed top-16 bg-neutral-50 dark:bg-[#131212] h-full w-[260px] border-r border-neutral-200 dark:border-[#373A40] px-4 pt-7 z-50">
       <ul className="flex flex-col gap-y-2">
         <li>
           <Link
